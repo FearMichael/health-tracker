@@ -1,0 +1,24 @@
+{
+  "name": "health-track",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm run start:api & npm run start:client",
+    "start:api": "cd api && npm run start",
+    "start:client": "cd client && ng serve --host 0.0.0.0 --proxy-config proxy.conf.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FearMichael/health-track.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FearMichael/health-track/issues"
+  },
+  "homepage": "https://github.com/FearMichael/health-track#readme"
+}
