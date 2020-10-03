@@ -1,30 +1,39 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { TypeOrmModule } from "@nestjs/typeorm";
+import { TypeOrmModule, TypeOrmModuleOptions } from "@nestjs/typeorm";
 import { Connection } from 'typeorm';
-import { UserController } from './User/user.controller';
-import { UserService } from './User/user.service';
-
+import { UserController } from './modules/User/user.controller';
+import { UserService } from './modules/User/user.service';
+import { AuthController } from './modules/Auth/auth.controller';
+import { AuthService } from './modules/Auth/auth.service';
+// import ormconfig from "../ormconfig.json";
+// console.log(ormconfig)
 @Module({
   imports: [
     TypeOrmModule.forRoot({
-      type: "mysql",
-      host: "localhost",
-      port: 3306,
-      username: "root",
-      password: "root",
-      database: "test",
-      entities: ["Entity/*.js"],
-      migrations: ["migration/*.js"],
-      cli: {
-        migrationsDir: "migration"
+      "type": "mysql",
+      "host": "localhost",
+      "port": 3306,
+      "username": "root",
+      password: "",
+      "database": "test",
+      "entities": [
+        "dist/**/*.entity{.ts,.js}"
+      ],
+      "migrations": [
+        "migration/*.ts"
+      ],
+      "cli": {
+        "migrationsDir": "migration"
       },
-      synchronize: true
+      "synchronize": false,
+      "migrationsRun": true
     })
+
   ],
-  controllers: [AppController, UserController],
-  providers: [AppService, UserService],
+  controllers: [AppController, UserController, AuthController],
+  providers: [AppService, UserService, AuthService],
 })
 export class AppModule {
   constructor(private connection: Connection) { }
