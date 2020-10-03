@@ -29,3 +29,4 @@ Instructions:
 ---
 1. This application runs inside of a VM using Vagrant. Run `vagrant up` to get started (assuming you have vagrant installed)
 2. Run `npm start` from /var/www in VM to start the Angular and API applications in parallel.
+3. Angular available on `localhost:4200` and API on `localhost:3000`

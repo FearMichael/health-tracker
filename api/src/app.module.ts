@@ -7,17 +7,19 @@ import { UserController } from './modules/User/user.controller';
 import { UserService } from './modules/User/user.service';
 import { AuthController } from './modules/Auth/auth.controller';
 import { AuthService } from './modules/Auth/auth.service';
-// import ormconfig from "../ormconfig.json";
-// console.log(ormconfig)
+import { config } from "dotenv";
+import { resolve } from "path";
+config({ path: resolve(__dirname, "../../.env") });
+
 @Module({
   imports: [
     TypeOrmModule.forRoot({
       "type": "mysql",
-      "host": "localhost",
+      "host": process.env.DB_HOST,
       "port": 3306,
-      "username": "root",
-      password: "",
-      "database": "test",
+      "username": process.env.DB_USERNAME,
+      "password": process.env.DB_PASSWORD,
+      "database": process.env.DB_NAME,
       "entities": [
         "dist/**/*.entity{.ts,.js}"
       ],
