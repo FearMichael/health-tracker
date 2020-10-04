@@ -1,0 +1,21 @@
+@import "~@angular/material/theming";
+@import "../../../../../scss/variables.scss";
+
+
+nav {
+    width: 100%;
+    // color: $accent;
+    // background-color: mat-color($accent-theme);
+    mat-toolbar {
+        mat-nav-list {
+            a {
+                color: $light-text;
+            }
+        }
+        height: $nav-height;
+        img {
+            height: $nav-height;
+            width: auto;
+        }
+    }
+} 

@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { MiddlewareConsumer, Module, NestModule, RequestMethod } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule, TypeOrmModuleOptions } from "@nestjs/typeorm";
@@ -9,6 +9,9 @@ import { AuthController } from './modules/Auth/auth.controller';
 import { AuthService } from './modules/Auth/auth.service';
 import { config } from "dotenv";
 import { resolve } from "path";
+import { ServeFrontend } from "./app.middleware";
+import { METHODS } from 'http';
+
 config({ path: resolve(__dirname, "../../.env") });
 
 @Module({
@@ -29,7 +32,7 @@ config({ path: resolve(__dirname, "../../.env") });
       "cli": {
         "migrationsDir": "migration"
       },
-      "synchronize": false,
+      "synchronize": true,
       "migrationsRun": true
     })
 
@@ -37,6 +40,11 @@ config({ path: resolve(__dirname, "../../.env") });
   controllers: [AppController, UserController, AuthController],
   providers: [AppService, UserService, AuthService],
 })
-export class AppModule {
+export class AppModule implements NestModule {
   constructor(private connection: Connection) { }
+
+  configure(consumer: MiddlewareConsumer) {
+    consumer.apply(ServeFrontend).forRoutes({ path: "*", method: RequestMethod.GET });
+  }
+
 }

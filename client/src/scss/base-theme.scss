@@ -1,0 +1,30 @@
+// @import "~@angular/material/theming";
+
+// @include mat-core();
+
+// // $primary: #1B2845;
+// // $custom-primary: mat-palette();
+// // $accent: #65AFFF;
+// // $custom-secondary: mat-palette();
+// // $warn: #e85d04;
+// // $custom-warn: mat-palette();
+
+// $primary: mat-palette($mat-blue, 900);
+// $accent: mat-palette($mat-blue, 400);
+
+// $custom-theme: mat-light-theme($primary, $accent);
+
+// @include angular-material-theme($custom-theme);
+
+// @function custom-color-theme($theme) {
+
+//     // $config: map-get($theme, primary);
+
+//     $primary: mat-color(map-get($theme, primary));
+//     $accent: mat-color(map-get($theme, accent));
+// }
+
+// // Include theme styles for core and each component used in your app.
+// // Alternatively, you can import and @include the theme mixins for each component
+// // that you are using.
+// custom-color-theme($custom-theme);

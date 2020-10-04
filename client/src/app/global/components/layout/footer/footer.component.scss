@@ -1,0 +1,11 @@
+@import "../../../../../scss//variables.scss";
+
+footer {
+    height: $footer-height;
+    background-color: $primary;
+    width: 100%;
+    color: $light-text;
+    span {
+        font-size: 20px;
+    }
+}

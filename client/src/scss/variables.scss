@@ -1,0 +1,15 @@
+@import "~@angular/material/theming"; 
+
+$primary-theme: mat-palette($mat-blue, 900);
+$accent-theme: mat-palette($mat-blue, 400);
+
+$primary: mat-color($primary-theme);
+$accent: mat-color($accent-theme);
+
+// Global Sizing
+$nav-height: 10vh;
+$footer-height: 5vh;
+
+
+// Global Colors
+$light-text: #ffffff;

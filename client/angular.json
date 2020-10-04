@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
+  "version": 1,
   "newProjectRoot": "projects",
   "projects": {
     "client": {
@@ -28,6 +28,7 @@
               "src/assets"
             ],
             "styles": [
+              "src/scss/base-theme.scss",
               "src/styles.scss"
             ],
             "scripts": []
@@ -123,6 +124,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "client"
 }

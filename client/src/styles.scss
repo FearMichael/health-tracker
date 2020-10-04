@@ -1,1 +1,28 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/theming";
+@import "./scss/variables.scss";
+
+// Theming
+@include mat-core();
+
+$custom-theme: mat-light-theme($primary-theme, $accent-theme);
+
+@include angular-material-theme($custom-theme);
+
+$nav-footer-height: calc(#{$nav-height} + #{$footer-height});
+
+// Global Styles
+html, body {
+    height: 100%;
+}
+
+nav#app-nav {
+    mat-toolbar {
+        height: $nav-height;
+        min-height: $nav-height;
+    }
+}
+
+main#app-content {
+    min-height: calc(100% - #{$nav-footer-height});
+}
+
