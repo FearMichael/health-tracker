@@ -9,7 +9,7 @@ import { AuthController } from './modules/Auth/auth.controller';
 import { AuthService } from './modules/Auth/auth.service';
 import { config } from "dotenv";
 import { resolve } from "path";
-import { ServeFrontend } from "./app.middleware";
+// import { ServeFrontend } from "./app.middleware";
 import { ServeStaticModule } from "@nestjs/serve-static"
 import { join } from "path";
 
