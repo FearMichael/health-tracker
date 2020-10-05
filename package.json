@@ -18,8 +18,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npm start --prefix api",
     "start:dev": "npm run start:api & npm run start:client",
-    "start:api": "npm run start --prefix api",
-    "start:client": "npm start --prefix client",
+    "start:api": "npm run start:dev --prefix api",
+    "start:client": "npm run start:dev --prefix client",
     "lint:api": "npm run lint --prefix api",
     "lint:client": "npm run lint --prefix client",
     "postinstall": "npm install --prefix client && npm run build --prefix client && npm run prestart:prod --prefix api"
