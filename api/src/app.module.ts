@@ -10,7 +10,8 @@ import { AuthService } from './modules/Auth/auth.service';
 import { config } from "dotenv";
 import { resolve } from "path";
 import { ServeFrontend } from "./app.middleware";
-import { METHODS } from 'http';
+import { ServeStaticModule } from "@nestjs/serve-static"
+import { join } from "path";
 
 config({ path: resolve(__dirname, "../../.env") });
 
@@ -34,17 +35,16 @@ config({ path: resolve(__dirname, "../../.env") });
       },
       "synchronize": true,
       "migrationsRun": true
-    })
-
+    }),
+    ServeStaticModule.forRoot({
+      rootPath: join(process.cwd(), '../client/dist'),
+      exclude: ['/api*'],
+    }),
   ],
   controllers: [AppController, UserController, AuthController],
   providers: [AppService, UserService, AuthService],
 })
-export class AppModule implements NestModule {
+export class AppModule {
   constructor(private connection: Connection) { }
-
-  configure(consumer: MiddlewareConsumer) {
-    consumer.apply(ServeFrontend).forRoutes({ path: "*", method: RequestMethod.GET });
-  }
 
 }
