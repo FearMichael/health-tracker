@@ -5,6 +5,7 @@ import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 async function bootstrap() {
 
   const app = await NestFactory.create(AppModule);
+  app.setGlobalPrefix("api")
 
   const options = new DocumentBuilder()
     .setTitle("Health Check API")
@@ -13,7 +14,7 @@ async function bootstrap() {
     .addTag("Health")
     .build();
   const document = SwaggerModule.createDocument(app, options);
-  SwaggerModule.setup("docs", app, document);
+  SwaggerModule.setup("api/docs", app, document);
   await app.listen(process.env.PORT || 3000);
 
 

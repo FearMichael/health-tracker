@@ -2,9 +2,14 @@
 
 $primary-theme: mat-palette($mat-blue, 900);
 $accent-theme: mat-palette($mat-blue, 400);
+$error-theme: mat-palette($mat-red, 500);
+$warn-theme: mat-palette($mat-orange, 500);
 
 $primary: mat-color($primary-theme);
 $accent: mat-color($accent-theme);
+$error: mat-color($error-theme);
+$warn: mat-color($warn-theme);
+
 
 // Global Sizing
 $nav-height: 10vh;
@@ -13,3 +18,5 @@ $footer-height: 5vh;
 
 // Global Colors
 $light-text: #ffffff;
+$yellow: $warn;
+$red: $error;

@@ -1,5 +1,5 @@
 import { MiddlewareConsumer, Module, NestModule, RequestMethod } from '@nestjs/common';
-import { AppController } from './app.controller';
+// import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule, TypeOrmModuleOptions } from "@nestjs/typeorm";
 import { Connection } from 'typeorm';
@@ -12,6 +12,8 @@ import { resolve } from "path";
 // import { ServeFrontend } from "./app.middleware";
 import { ServeStaticModule } from "@nestjs/serve-static"
 import { join } from "path";
+import { ChartsController } from './modules/Charts/charts.controller';
+import { ChartsService } from './modules/Charts/charts.service';
 
 config({ path: resolve(__dirname, "../../.env") });
 
@@ -41,8 +43,8 @@ config({ path: resolve(__dirname, "../../.env") });
       exclude: ['/api*'],
     }),
   ],
-  controllers: [AppController, UserController, AuthController],
-  providers: [AppService, UserService, AuthService],
+  controllers: [UserController, AuthController, ChartsController],
+  providers: [AppService, UserService, AuthService, ChartsService],
 })
 export class AppModule {
   constructor(private connection: Connection) { }
