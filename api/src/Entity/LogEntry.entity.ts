@@ -1,21 +1,21 @@
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 import { User } from "./User.entity";
+import { BaseEntity } from "./BaseEntity";
+import { RatingValues } from "../global/Enums/rating.enum";
 
 @Entity()
-export class LogEntry {
+export class LogEntry extends BaseEntity {
 
-    @PrimaryGeneratedColumn("uuid")
-    id: string;
-
-    @Column({ type: "timestamp" })
+    @Column({ type: "varchar" })
     date: string;
 
-    @Column({ type: "text" })
+    @Column({ type: "text", nullable: false })
     notes: string;
 
     @ManyToOne(type => User, user => user.logEntries)
     user: User;
 
-
+    @Column({ type: "enum", enum: RatingValues, nullable: false })
+    rating: number;
 
 }

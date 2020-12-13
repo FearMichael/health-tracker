@@ -11,9 +11,9 @@
             <img src="assets/images/HealthTrackerWide.png" alt="Health Tracker Icon" />
         </div>
         <div class="d-flex">
-            <button mat-button *ngIf="loggedIn; else logout">Logout</button>
-            <ng-template #logout>
-                <button mat-button>Login</button>
+            <button mat-button *ngIf="auth.isAuthenticated$ | async; else login" (click)="auth.logout()">Logout</button>
+            <ng-template #login>
+                <button mat-button (click)="auth.loginWithRedirect()">Login</button>
             </ng-template>
         </div>
     </mat-toolbar>

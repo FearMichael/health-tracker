@@ -1,0 +1,18 @@
+<section class="mx-auto">
+    <div class="d-block mx-auto">
+        <div class="d-flex justify-space-between align-items-center mx-auto">
+            <button mat-icon-button (click)="calculateDate(true)">
+                <mat-icon>navigate_before</mat-icon>
+            </button>
+            <h4 class="mb-0">{{ value.startDate | date: "mediumDate" }} - {{ value.endDate | date: "mediumDate" }}</h4>
+            <button mat-icon-button (click)="calculateDate()">
+                <mat-icon>navigate_next</mat-icon>
+            </button>
+        </div>
+        <ng-container *ngIf="rangeToggle">
+            <button mat-button>month</button>
+            <button mat-button>day</button>
+            <button mat-button>year</button>
+        </ng-container>
+    </div>
+</section>

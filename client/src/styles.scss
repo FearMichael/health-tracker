@@ -1,4 +1,3 @@
-@import "~@angular/material/theming";
 @import "./scss/variables.scss";
 
 // Theming
@@ -26,3 +25,31 @@ main#app-content {
     min-height: calc(100% - #{$nav-footer-height});
 }
 
+.error {
+    background-color: $red;
+}
+
+.warning {
+    background-color: $yellow;
+}
+
+.notification {
+    background-color: $light-text;
+}
+
+snack-bar-container.mat-snack-bar-container {
+
+    &.error, &.warning, button {
+        color: #000;
+    }
+    &.error {
+        background: $red;
+    }
+    &.warning {
+        background: $yellow;
+    }
+    &.notification {
+        background: $light-text;
+        color: $primary;
+    }
+}

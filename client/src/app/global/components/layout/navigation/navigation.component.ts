@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from "@auth0/auth0-angular";
+import { INotificationColors, INotificationMessage } from 'src/app/global/services/NotificationService/notification.interfaces';
+import { NotificationService } from 'src/app/global/services/NotificationService/notification.service';
+
 
 @Component({
   selector: 'navigation',
@@ -9,9 +13,25 @@ export class NavigationComponent implements OnInit {
 
   public loggedIn = false;
 
-  constructor() { }
+  constructor(
+    private notification: NotificationService,
+    public auth: AuthService
+  ) { }
 
   ngOnInit(): void {
+    this.auth.isAuthenticated$.subscribe((auth) => {
+      console.log(auth)
+      this.loggedIn = auth
+    })
+    this.auth.user$.subscribe((user) => {
+      const msg: INotificationMessage = {
+        message: `Welcome ${user.name}`,
+        color: INotificationColors.NOTIFICATION,
+        duration: 30 * 1000
+      }
+      this.notification.notify(msg);
+      console.log(user)
+    });
   }
 
 }
