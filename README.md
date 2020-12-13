@@ -38,3 +38,8 @@ Pull Requests:
 2. Submit a pull request for what functionality or bug fix you are adding and then assign the Pull Request to Michael Fearnley.
 3. Pay attention to any requested changes on your Pull Request and make the necessary adjustments on that branch and then push the changes in order to update the PR.
 4. If all is good your PR is merge, now do a fresh pull and a little dance to celebrate!
+
+Api Documentation:
+---
+API documentation is self-documenting based on swagger tags added to controllers and entities.
+Documentation is available at: `localhost:3000/docs`

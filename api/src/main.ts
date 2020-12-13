@@ -14,7 +14,7 @@ async function bootstrap() {
     .addTag("Health")
     .build();
   const document = SwaggerModule.createDocument(app, options);
-  SwaggerModule.setup("api/docs", app, document);
+  SwaggerModule.setup("docs", app, document);
   await app.listen(process.env.PORT || 3000);
 
 
