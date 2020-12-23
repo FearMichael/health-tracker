@@ -35,6 +35,16 @@ Instructions:
 Optional: If you run both applications in parallel, you may run into file watcher limits. In order to increase your file watchers, run this command inside of the VM:
 `echo fs.inotify.max_user_watches=582222 | sudo tee -a /etc/sysctl.conf && sudo sysctl  -p`
 
+Migrations:
+---
+Note: If you make changes to entities you will need to run a migration in order for these changes to be captured and the database updated. The scripts needed to do this are in the package.json.
+
+Note: You cannot use the typeorm-cli out of the box as it is built with JS and needs to run through ts-node to transpile our ts files to js for it to read. The scripts also point to a separate config file that is only used for the CLI.
+1. Make your changes to the necessary entities
+2. From the terminal, run `npm run migration:generate` which will run the typeorm-cli behind the scenes create a migration
+3. Restart the application and the migration will be applied whe the application starts.
+4. You are now using the application with the new data schema.
+
 Pull Requests:
 --- 
 1. Each commit is linted, fix any lint errors before pushing and avoid overriding the linter.
