@@ -2,7 +2,7 @@ import { AfterLoad, Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 import differenceInCalendarYears from 'date-fns/differenceInCalendarYears'
 import format from "date-fns/format"
 // import Date from 'date-fns/'
-import { BaseEntity } from "./BaseEntity";
+import { BaseEntity } from "./BaseEntity.entity";
 
 
 @Entity()

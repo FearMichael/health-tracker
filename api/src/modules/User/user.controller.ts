@@ -1,6 +1,6 @@
 import { Controller, Post } from '@nestjs/common';
 import { ApiProperty, ApiTags } from '@nestjs/swagger';
-import { User } from 'src/Entity/User.entity';
+import { User } from 'src/entity/User.entity';
 import { getManager, getRepository } from 'typeorm';
 import { UserService } from './user.service';
 

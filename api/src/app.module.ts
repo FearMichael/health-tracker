@@ -15,28 +15,12 @@ import { join } from "path";
 import { ChartsController } from './modules/Charts/charts.controller';
 import { ChartsService } from './modules/Charts/charts.service';
 
-config({ path: resolve(__dirname, "../../.env") });
+import { ormConfig } from "./config/ormconfig";
 
 @Module({
   imports: [
     TypeOrmModule.forRoot({
-      "type": "mysql",
-      "host": process.env.DB_HOST,
-      "port": 3306,
-      "username": process.env.DB_USERNAME,
-      "password": process.env.DB_PASSWORD,
-      "database": process.env.DB_NAME,
-      "entities": [
-        "dist/**/*.entity{.ts,.js}"
-      ],
-      "migrations": [
-        "migration/*.ts"
-      ],
-      "cli": {
-        "migrationsDir": "migration"
-      },
-      "synchronize": true,
-      "migrationsRun": true
+      ...ormConfig as TypeOrmModuleOptions
     }),
     ServeStaticModule.forRoot({
       rootPath: join(process.cwd(), '../client/dist'),

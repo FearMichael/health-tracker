@@ -9,12 +9,18 @@ import { AuthService } from "@auth0/auth0-angular";
 })
 export class LoginComponent implements OnInit {
 
-  constructor(public auth: AuthService) { }
+  constructor(private auth: AuthService) { }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
 
+    // this.auth
 
+    // this.login("hello", "hello");
 
+  }
+
+  public login(email: string, password: string) {
+    // this.auth.loginWithPopup(email, password)
   }
 
 }
