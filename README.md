@@ -32,6 +32,9 @@ Instructions:
 3. Run `npm run start:dev` from /var/www in VM to start the Angular and API applications in parallel for local development.
 4. Angular available on `localhost:4200` and API on `localhost:3000`
 
+Optional: If you run both applications in parallel, you may run into file watcher limits. In order to increase your file watchers, run this command inside of the VM:
+`echo fs.inotify.max_user_watches=582222 | sudo tee -a /etc/sysctl.conf && sudo sysctl  -p`
+
 Pull Requests:
 --- 
 1. Each commit is linted, fix any lint errors before pushing and avoid overriding the linter.
