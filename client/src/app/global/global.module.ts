@@ -10,15 +10,23 @@ import { MatListModule } from "@angular/material/list";
 import { ChartComponent } from './components/chart/chart.component'
 import { MatCardModule } from '@angular/material/card';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-
 import { DateToggleComponent } from './components/date-toggle/date-toggle.component';
 import { FormsModule } from '@angular/forms';
 import { NgxEchartsModule } from "ngx-echarts";
+import { LoaderComponent } from './modules/loader/loader-component/loader.component';
+import * as Services from "./services/index";
+import { NotificationDialogComponent } from './modules/notification/notification-dialog/notification-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { NotificationModule } from "./modules/notification/notification.module";
+import { LoaderModule } from "./modules/loader/loader.module";
 
 @NgModule({
   declarations: [
     ChartComponent,
-    DateToggleComponent
+    DateToggleComponent,
+    LoaderComponent,
+    NotificationDialogComponent
+
   ],
   imports: [
     CommonModule,
@@ -32,7 +40,10 @@ import { NgxEchartsModule } from "ngx-echarts";
     }),
     FormsModule,
     MatSnackBarModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatDialogModule,
+    NotificationModule,
+    LoaderModule
   ],
   exports: [
     MatToolbarModule,
@@ -44,6 +55,8 @@ import { NgxEchartsModule } from "ngx-echarts";
     DateToggleComponent,
     FormsModule,
     MatCardModule,
-  ]
+    LoaderComponent,
+  ],
+  providers: Object.values(Services).map(e => e)
 })
 export class GlobalModule { }

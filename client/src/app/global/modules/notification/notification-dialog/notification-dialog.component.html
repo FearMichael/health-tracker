@@ -1,0 +1,9 @@
+<div class="notification">
+    <h1 class="text-center">{{ data.title }}</h1>
+    <mat-divider class="mb-3"></mat-divider>
+    <h6 mat-dialog-content>{{ data.message }}</h6>
+    <div class="d-flex flex-row-reverse">
+        <button mat-raised-button class="ml-5" color="primary" (click)="data.acceptButton()">{{ data.acceptText }}</button>
+        <button mat-button (click)="data.cancelButton()">{{ data.cancelText }}</button>
+    </div>
+</div>

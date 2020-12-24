@@ -1,0 +1,32 @@
+$width: 250px;
+
+section {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(201, 201, 201, 0.632);
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    img {
+        width: $width;
+        height: auto;
+        animation-name: spin;
+        animation-duration: 2000ms;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+        position: fixed;
+        left: calc(50% - #{$width});
+        top: calc(50% - #{$width});
+        margin: 0 auto;
+    }
+}
+
+@keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+}

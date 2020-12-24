@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
 import { switchMap, tap } from 'rxjs/operators';
-import { UserService } from 'src/app/global/services/user-service.service';
+import { UserService } from 'src/app/global/services/UserService/user-service.service';
 
 @Component({
   selector: 'app-profile',
