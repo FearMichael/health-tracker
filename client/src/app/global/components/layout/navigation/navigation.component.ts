@@ -19,17 +19,14 @@ export class NavigationComponent implements OnInit {
 
   ngOnInit(): void {
     this.auth.isAuthenticated$.subscribe((auth) => {
-      console.log(auth)
       this.loggedIn = auth
     })
     this.auth.user$.subscribe((user) => {
       const msg: INotificationMessage = {
         message: `Welcome ${user.name}`,
         color: INotificationColors.NOTIFICATION,
-        duration: 30 * 1000
       }
       this.notification.notify(msg);
-      console.log(user)
     });
   }
 
