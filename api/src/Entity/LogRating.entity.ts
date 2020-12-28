@@ -1,12 +1,11 @@
-import { Column, Entity, ManyToOne, ManyToMany, JoinTable } from "typeorm";
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 import { User } from "./User.entity";
 import { BaseEntity } from "./BaseEntity.entity";
 import { RatingValues } from "../global/Enums/rating.enum";
 import { ApiProperty } from "@nestjs/swagger";
-import { LogRating } from "./LogRating.entity";
 
 @Entity()
-export class LogEntry extends BaseEntity {
+export class LogRating extends BaseEntity {
 
     @ApiProperty()
     @Column({ type: "varchar" })
@@ -21,7 +20,6 @@ export class LogEntry extends BaseEntity {
     user: User;
 
     @ApiProperty()
-    @ManyToMany(() => LogRating)
-    @JoinTable()
-    questions: LogRating[];
+    @Column({ type: "enum", enum: RatingValues, nullable: false })
+    rating: number;
 }

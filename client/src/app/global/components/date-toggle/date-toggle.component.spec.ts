@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { DateToggleComponent } from './date-toggle.component';
 
@@ -6,7 +6,7 @@ describe('DateToggleComponent', () => {
   let component: DateToggleComponent;
   let fixture: ComponentFixture<DateToggleComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ DateToggleComponent ]
     })

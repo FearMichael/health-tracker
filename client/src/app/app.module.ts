@@ -9,6 +9,8 @@ import { FooterComponent } from "./global/components/layout/footer/footer.compon
 import { HomeComponent } from './components/home/home.component';
 import { AuthModule } from "@auth0/auth0-angular";
 import { LoginComponent } from './components/login/login.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -17,9 +19,11 @@ import { LoginComponent } from './components/login/login.component';
     FooterComponent,
     HomeComponent,
     LoginComponent,
+    ProfileComponent,
 
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     GlobalModule,

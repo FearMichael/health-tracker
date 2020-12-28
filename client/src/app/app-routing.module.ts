@@ -3,8 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from "./components/home/home.component";
 import { AuthGuard } from "./auth.guard";
 import { LoginComponent } from './components/login/login.component';
-
-
+import { ProfileComponent } from './components/profile/profile.component';
 
 const routes: Routes = [
   {
@@ -14,12 +13,17 @@ const routes: Routes = [
   {
     path: "home",
     component: HomeComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
+  },
+  {
+    path: "profile",
+    component: ProfileComponent,
+    // canActivate: [AuthGuard]
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
