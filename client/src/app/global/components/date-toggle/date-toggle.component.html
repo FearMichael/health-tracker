@@ -1,6 +1,6 @@
 <section class="mx-auto">
     <div class="d-block mx-auto">
-        <div class="d-flex justify-space-between align-items-center mx-auto">
+        <div class="d-flex justify-content-between align-items-center mx-auto">
             <button mat-icon-button (click)="calculateDate(true)">
                 <mat-icon>navigate_before</mat-icon>
             </button>
@@ -9,10 +9,10 @@
                 <mat-icon>navigate_next</mat-icon>
             </button>
         </div>
-        <ng-container *ngIf="rangeToggle">
+        <div class="d-flex justify-content-around" *ngIf="rangeToggle">
             <button mat-button>month</button>
             <button mat-button>day</button>
             <button mat-button>year</button>
-        </ng-container>
+        </div>
     </div>
 </section>
