@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LoaderService } from "./LoaderService/loader.service";
+import { LoaderService } from './LoaderService/loader.service';
 
 @NgModule({
   declarations: [],

@@ -1,7 +1,7 @@
 import { Column, Entity, ManyToOne, ManyToMany, JoinTable } from "typeorm";
 import { User } from "./User.entity";
 import { BaseEntity } from "./BaseEntity.entity";
-import { RatingValues } from "../global/Enums/rating.enum";
+// import { RatingValues } from "../global/Enums/rating.enum";
 import { ApiProperty } from "@nestjs/swagger";
 import { LogRating } from "./LogRating.entity";
 
@@ -17,7 +17,7 @@ export class LogEntry extends BaseEntity {
     notes: string;
 
     @ApiProperty()
-    @ManyToOne(type => User, user => user.logEntries)
+    @ManyToOne(() => User, user => user.logEntries)
     user: User;
 
     @ApiProperty()

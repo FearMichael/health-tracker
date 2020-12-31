@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
-import { tap } from "rxjs/operators";
+import { tap } from 'rxjs/operators';
 
 
 @Component({
@@ -8,16 +8,17 @@ import { tap } from "rxjs/operators";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+
+  public title = 'Health Tracker';
 
   constructor(
     // private notification: NotificationService,
     // private snackbar: MatSnackBar
     private auth: AuthService,
-    // private user: 
+    // private user:
   ) { }
 
-  public title = 'Health Tracker';
 
   public ngOnInit() {
     this.auth.user$.pipe(

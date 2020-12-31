@@ -1,11 +1,11 @@
 import { Component, forwardRef, Input, OnInit } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { format, formatDistance, formatRelative, subDays, addDays, getTime } from 'date-fns'
+import { format, formatDistance, formatRelative, subDays, addDays, getTime } from 'date-fns';
 import { IDateToggle } from './date-toggle.interfaces';
 
 
 @Component({
-  selector: 'date-toggle',
+  selector: 'app-date-toggle',
   templateUrl: './date-toggle.component.html',
   styleUrls: ['./date-toggle.component.scss'],
   providers: [{
@@ -16,17 +16,19 @@ import { IDateToggle } from './date-toggle.interfaces';
 })
 export class DateToggleComponent implements OnInit, ControlValueAccessor {
 
-  public dayChange: number = 7;
-
-  @Input("value") public value: IDateToggle;
-  @Input("range-toggle") public rangeToggle = true;
+  @Input() public value: IDateToggle;
+  @Input() public rangeToggle = true;
+  public dayChange = 7;
 
   public defaultDates: IDateToggle = {
     endDate: Date.now(),
     startDate: this.calculateHelper(true, Date.now(), this.dayChange)
-  }
+  };
 
   constructor() { }
+
+  public ngOnInit(): void {
+  }
 
   propogateChange(date: IDateToggle): void { }
 
@@ -54,7 +56,7 @@ export class DateToggleComponent implements OnInit, ControlValueAccessor {
     this.value = {
       endDate: this.calculateHelper(back, this.value.endDate, this.dayChange),
       startDate: this.calculateHelper(back, this.value.startDate, this.dayChange)
-    }
+    };
     this.propogateChange(this.value);
   }
 
@@ -63,7 +65,6 @@ export class DateToggleComponent implements OnInit, ControlValueAccessor {
   }
 
 
-  ngOnInit(): void {
-  }
+
 
 }
