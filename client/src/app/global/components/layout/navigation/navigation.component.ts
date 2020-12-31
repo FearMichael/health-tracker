@@ -24,7 +24,7 @@ export class NavigationComponent implements OnInit {
     this.auth.user$.subscribe((user) => {
       const msg: INotificationMessage = {
         message: `Welcome ${user.name}`,
-        color: INotificationColors.NOTIFICATION,
+        color: INotificationColors.notification,
       };
       this.notification.notify(msg);
     });
