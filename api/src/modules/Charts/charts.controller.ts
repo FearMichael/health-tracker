@@ -1,6 +1,5 @@
 import { Controller, Get } from '@nestjs/common';
 import { ApiProperty } from '@nestjs/swagger';
-import { get } from 'http';
 import { SortDirection } from 'src/global/Interfaces/query.enum';
 import { ChartsService } from './charts.service';
 

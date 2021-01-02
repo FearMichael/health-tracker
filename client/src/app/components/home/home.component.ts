@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { subDays } from "date-fns";
+import { subDays } from 'date-fns';
 import { NotificationService } from 'src/app/global/modules/notification/NotificationService/notification.service';
 
 @Component({
@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
   public date = {
     endDate: Date.now(),
     startDate: subDays(Date.now(), 7)
-  }
+  };
 
   constructor(
     private http: HttpClient,

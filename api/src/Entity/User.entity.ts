@@ -18,10 +18,10 @@ export class User extends BaseEntity {
     @Column({ type: "varchar" })
     profilePicture: string;
 
-    @OneToMany(type => LogEntry, entry => entry.user)
+    @OneToMany(() => LogEntry, entry => entry.user)
     logEntries: LogEntry[]
 
-    @OneToOne(type => PersonalInformation)
+    @OneToOne(() => PersonalInformation)
     @JoinColumn()
     personalInformation: PersonalInformation;
 

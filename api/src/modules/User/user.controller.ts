@@ -1,8 +1,7 @@
 import { Controller, Post } from '@nestjs/common';
 import { ApiProperty, ApiTags } from '@nestjs/swagger';
 import { User } from 'src/entity/User.entity';
-import { getManager, getRepository } from 'typeorm';
-import { UserService } from './user.service';
+import { getManager } from 'typeorm';
 
 
 @ApiTags("User")
@@ -18,6 +17,8 @@ export class UserController {
             lastName: "",
 
         })
+        // TODO remove the log
+        console.log(user);
         // return userRepo.create(user);
     }
 
