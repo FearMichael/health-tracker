@@ -1,4 +1,4 @@
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, ManyToOne } from "typeorm";
 import { User } from "./User.entity";
 import { BaseEntity } from "./BaseEntity.entity";
 import { RatingValues } from "../global/Enums/rating.enum";
@@ -16,7 +16,7 @@ export class LogRating extends BaseEntity {
     notes: string;
 
     @ApiProperty()
-    @ManyToOne(type => User, user => user.logEntries)
+    @ManyToOne(() => User, user => user.logEntries)
     user: User;
 
     @ApiProperty()

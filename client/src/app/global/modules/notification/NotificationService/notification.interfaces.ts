@@ -1,15 +1,14 @@
-import { MatDialogRef } from '@angular/material/dialog';
+export enum INotificationColors {
+    'error' = 'error',
+    'warning' = 'warning',
+    'notification' = 'notification'
+}
 
 export interface INotificationMessage {
     message: string;
     action?: string;
     color?: INotificationColors;
     duration?: number;
-}
-export enum INotificationColors {
-    "ERROR" = "error",
-    "WARNING" = "warning",
-    "NOTIFICATION" = "notification"
 }
 
 export interface INotificationDialog {
@@ -20,6 +19,6 @@ export interface INotificationDialog {
 }
 
 export interface INotificationDialogData extends INotificationDialog {
-    cancelButton: () => void,
-    acceptButton: () => void
+    cancelButton: () => void;
+    acceptButton: () => void;
 }

@@ -9,6 +9,11 @@ export class LoaderService {
 
   public show$ = new ReplaySubject<boolean>(1);
 
+
+  constructor() {
+    this.show$.next(false);
+  }
+
   public show() {
     this.show$.next(true);
   }
@@ -20,10 +25,6 @@ export class LoaderService {
     this.show();
     return o.pipe(
       tap(() => this.hide())
-    )
-  }
-
-  constructor() {
-    this.show$.next(false);
+    );
   }
 }

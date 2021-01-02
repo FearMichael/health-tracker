@@ -10,7 +10,12 @@ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubun
 sudo apt-get update
 
 # Install utilities
-sudo apt-get install -y build-essential unzip git python3-pip mysql-client
+sudo apt-get install -y build-essential unzip python3-pip mysql-client
+
+# Install latest version of git
+sudo apt-add-repository ppa:git-core/ppa -y
+sudo apt-get update
+sudo apt-get install git
 
 # Set Timezone if needed
 #sudo timedatectl set-timezone America/New_York
@@ -55,6 +60,9 @@ cd /var/www/api
 npm install
 cd /var/www/client
 npm install
+
+# Increase the file watchers - may remove this in favor of not running backend in dev mode
+echo 'fs.inotify.max_user_watches=524288' | sudo tee -a /etc/sysctl.conf
 
 # Copy environment files from example if it doesn't already exist
 cp -n /var/www/api/.env.example /var/www/api/.env
