@@ -14,12 +14,14 @@ import { ChartsController } from './modules/Charts/charts.controller';
 import { ChartsService } from './modules/Charts/charts.service';
 
 import { ormConfig } from "./config/ormconfig";
+import * as Entities from "./entity/index";
 
 @Module({
   imports: [
     TypeOrmModule.forRoot({
       ...ormConfig as TypeOrmModuleOptions
     }),
+    TypeOrmModule.forFeature(Object.values(Entities)),
     ServeStaticModule.forRoot({
       rootPath: join(process.cwd(), '../client/dist'),
       exclude: ['/api*'],

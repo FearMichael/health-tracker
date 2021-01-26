@@ -11,6 +11,7 @@ import { NotificationService } from 'src/app/global/modules/notification/Notific
 export class NavigationComponent implements OnInit {
 
   public loggedIn = false;
+  public user;
 
   constructor(
     private notification: NotificationService,
@@ -22,6 +23,7 @@ export class NavigationComponent implements OnInit {
       this.loggedIn = auth;
     });
     this.auth.user$.subscribe((user) => {
+      this.user = user;
       const msg: INotificationMessage = {
         message: `Welcome ${user.name}`,
         color: INotificationColors.notification,

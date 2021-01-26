@@ -19,6 +19,12 @@ import { NotificationDialogComponent } from './modules/notification/notification
 import { MatDialogModule } from '@angular/material/dialog';
 import { NotificationModule } from './modules/notification/notification.module';
 import { LoaderModule } from './modules/loader/loader.module';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatInputModule } from '@angular/material/input';
+
 
 @NgModule({
   declarations: [
@@ -43,7 +49,12 @@ import { LoaderModule } from './modules/loader/loader.module';
     BrowserAnimationsModule,
     MatDialogModule,
     NotificationModule,
-    LoaderModule
+    LoaderModule,
+    MatMenuModule,
+    MatFormFieldModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatInputModule,
   ],
   exports: [
     MatToolbarModule,
@@ -56,7 +67,15 @@ import { LoaderModule } from './modules/loader/loader.module';
     FormsModule,
     MatCardModule,
     LoaderComponent,
+    MatMenuModule,
+    MatFormFieldModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatInputModule
   ],
-  providers: Object.values(Services).map(e => e)
+  providers: [
+    ...Object.values(Services).map(e => e),
+    MatNativeDateModule
+  ]
 })
 export class GlobalModule { }

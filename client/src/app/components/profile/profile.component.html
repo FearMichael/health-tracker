@@ -1,1 +1,58 @@
-<p>profile works!</p>
+<section>
+    <mat-card>
+        <mat-form-field>
+            <mat-label>First Name</mat-label>
+            <input matInput [(ngModel)]="user.firstName">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Last Name</mat-label>
+            <input matInput [(ngModel)]="user.lastName">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Birthday</mat-label>
+            <input matInput [(ngModel)]="user.birthDate">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Address 1</mat-label>
+            <input matInput [(ngModel)]="user.address.address1">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Address 2</mat-label>
+            <input matInput [(ngModel)]="user.address.address2">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Address 3</mat-label>
+            <input matInput [(ngModel)]="user.address.address3">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>City</mat-label>
+            <input matInput [(ngModel)]="user.address.city">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>State</mat-label>
+            <input matInput [(ngModel)]="user.address.state">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Postal</mat-label>
+            <input matInput [(ngModel)]="user.address.postal">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Country</mat-label>
+            <input matInput [(ngModel)]="user.address.country">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Profile Picture URL</mat-label>
+            <input matInput [(ngModel)]="user.profilePicture">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Birth Date</mat-label>
+            <input matInput [matDatepicker]="birthday">
+            <mat-datepicker-toggle matSuffix [for]="birthday"></mat-datepicker-toggle>
+            <mat-datepicker #birthday></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Alternate Email</mat-label>
+            <input matInput [(ngModel)]="user.alternateEmail">
+        </mat-form-field>
+    </mat-card>
+</section>
