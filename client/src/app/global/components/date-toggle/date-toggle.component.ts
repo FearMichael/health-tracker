@@ -1,6 +1,6 @@
 import { Component, forwardRef, Input, OnInit } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { format, formatDistance, formatRelative, subDays, addDays, getTime } from 'date-fns';
+import * as dayjs from 'dayjs';
 import { IDateToggle } from './date-toggle.interfaces';
 
 
@@ -61,7 +61,7 @@ export class DateToggleComponent implements OnInit, ControlValueAccessor {
   }
 
   private calculateHelper(back = false, time: number, days: number) {
-    return getTime(back ? subDays(time, days) : addDays(time, days));
+    return dayjs(back ? dayjs(time).subtract(days, 'days') : dayjs(time).add(days, 'days')).get('millisecond');
   }
 
 

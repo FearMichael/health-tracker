@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
+import { map, mergeMap, switchMap } from 'rxjs/operators';
 import { INotificationMessage, INotificationColors } from 'src/app/global/modules/notification/NotificationService/notification.interfaces';
 import { NotificationService } from 'src/app/global/modules/notification/NotificationService/notification.service';
+import { UserService } from 'src/app/global/services';
 
 @Component({
   selector: 'app-navigation',
@@ -15,17 +17,23 @@ export class NavigationComponent implements OnInit {
 
   constructor(
     private notification: NotificationService,
-    public auth: AuthService
+    public auth: AuthService,
+    private userService: UserService
   ) { }
 
   ngOnInit(): void {
     this.auth.isAuthenticated$.subscribe((auth) => {
       this.loggedIn = auth;
     });
-    this.auth.user$.subscribe((user) => {
-      this.user = user;
+    this.auth.user$.pipe(
+      switchMap((user) => this.userService.getAuthUser({ id: user.sub, email: user.email }).pipe(
+        map((created) => ({ authUser: user, created }))
+      )
+      )
+    ).subscribe(({ authUser, created }) => {
+      this.user = created;
       const msg: INotificationMessage = {
-        message: `Welcome ${user.name}`,
+        message: `Welcome ${created.firstName ? created.firstName : created.email}`,
         color: INotificationColors.notification,
       };
       this.notification.notify(msg);

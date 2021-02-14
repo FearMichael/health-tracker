@@ -13,8 +13,16 @@ export class UserService {
 
   }
 
-  public getAuthUser(user): Observable<any> {
-    return this.http.post(`/user`, user);
+  public getAuthUser({ id, email }): Observable<any> {
+    return this.http.post(`/api/user/auth`, { id, email });
+  }
+
+  public update(user) {
+    return this.http.put(`/api/user/${user.id}`, user);
+  }
+
+  public getDetail(id: string) {
+    return this.http.get(`/api/user/${id}/detail`);
   }
 
 }

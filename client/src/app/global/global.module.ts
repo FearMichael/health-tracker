@@ -24,6 +24,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
+import { FullnamePipe } from './pipes/fullname.pipe';
+import { CalendarPipe } from './pipes/calendar.pipe';
 
 
 @NgModule({
@@ -31,7 +33,9 @@ import { MatInputModule } from '@angular/material/input';
     ChartComponent,
     DateToggleComponent,
     LoaderComponent,
-    NotificationDialogComponent
+    NotificationDialogComponent,
+    FullnamePipe,
+    CalendarPipe
 
   ],
   imports: [
@@ -71,7 +75,9 @@ import { MatInputModule } from '@angular/material/input';
     MatFormFieldModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatInputModule
+    MatInputModule,
+    FullnamePipe,
+    CalendarPipe
   ],
   providers: [
     ...Object.values(Services).map(e => e),

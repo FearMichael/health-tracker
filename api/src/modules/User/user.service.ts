@@ -3,7 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { PersonalInformation } from 'src/entity';
 import { User } from 'src/entity/User.entity';
 import { getConnection, Repository } from 'typeorm';
-import { IUserDetail } from './user.interfaces';
+import { ILoginPayload, IUserDetail } from './user.interfaces';
 
 @Injectable()
 export class UserService {
@@ -14,7 +14,11 @@ export class UserService {
         @InjectRepository(User) private userRepo: Repository<User>
     ) { }
 
-    create(user: Partial<IUserDetail>) {
+    public list() {
+        return this.userRepo.findAndCount();
+    }
+
+    public create(user: Partial<IUserDetail>) {
         const added = this.userRepo.create(user);
         added.personalInformation = user.personalInformation;
         added.address = user.address;
@@ -30,18 +34,31 @@ export class UserService {
         //     .set(user.personalInformation)
 
     }
-    read(id: string) {
+
+    public async findOrCreate({ id, email }: ILoginPayload) {
+        let user: User;
+        user = await this.userRepo.findOne(id);
+        if (!user) {
+            user = this.userRepo.create({ id, email });
+            this.userRepo.save(user);
+        }
+        return user;
+    }
+
+    public getById(id: string) {
         return this.userRepo.findOneOrFail(id);
     }
-    update(id: string, user: Partial<User>) {
-        return this.userRepo.update(id, user);
+    public async update(id: string, { personalInformation, address, ...input }: Partial<User>) {
+        return await this.userRepo.save({ personalInformation, address, ...input });
     }
-    delete(id: string) {
+    public delete(id: string) {
         return this.userRepo.delete(id);
     }
     // TODO type User and PersonalInformation
-    userDetail(id: string): Promise<IUserDetail> {
-        return this.userRepo.findOneOrFail(id, { relations: ["personalInformation", "address"] });
+    public userDetail(id: string): Promise<IUserDetail> {
+        return this.userRepo.findOneOrFail(id, { relations: ["personalInformation", "address"] }).then((val) => {
+            return val;
+        });
     }
 
 

@@ -1,5 +1,5 @@
 import { AfterLoad, Column, Entity } from "typeorm";
-import differenceInCalendarYears from 'date-fns/differenceInCalendarYears'
+import { differenceInCalendarYears } from 'date-fns'
 // import format from "date-fns/format"
 // import Date from 'date-fns/'
 import { BaseEntity } from "./BaseEntity.entity";

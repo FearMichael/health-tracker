@@ -11,3 +11,8 @@ export interface IUserDetail extends User {
     personalInformation: PersonalInformation
     address: Address
 }
+
+export interface ILoginPayload {
+    id: string;
+    email: string;
+}

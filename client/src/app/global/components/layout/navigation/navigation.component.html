@@ -11,8 +11,8 @@
             <img src="assets/images/HealthTrackerWide.png" alt="Health Tracker Icon" />
         </div>
         <div class="d-flex">
-            <ng-container *ngIf="auth.isAuthenticated$ | async; else login">
-                <button mat-button [matMenuTriggerFor]="userMenu">{{ user.name }} <mat-icon>keyboard_arrow_down</mat-icon></button>
+            <ng-container *ngIf="user; else login">
+                <button mat-button [matMenuTriggerFor]="userMenu">{{ (user | fullname) || user.email }} <mat-icon>keyboard_arrow_down</mat-icon></button>
                 <mat-menu #userMenu>
                     <a routerLink="/profile" mat-menu-item>Profile</a>
                     <button (click)="auth.logout()" mat-menu-item>Logout</button>
