@@ -3,6 +3,9 @@ import { User } from "./User.entity";
 import { BaseEntity } from "./BaseEntity.entity";
 import { RatingValues } from "../global/Enums/rating.enum";
 import { ApiProperty } from "@nestjs/swagger";
+import { IsDefined } from "class-validator";
+import { LogEntry } from "./LogEntry.entity";
+import { LogQuestion } from "./LogQuestion.entity";
 
 @Entity()
 export class LogRating extends BaseEntity {
@@ -19,7 +22,16 @@ export class LogRating extends BaseEntity {
     @ManyToOne(() => User, user => user.logEntries)
     user: User;
 
+    @ManyToOne(() => LogQuestion, logQuestion => logQuestion.entries)
+    questionType: LogQuestion;
+
     @ApiProperty()
     @Column({ type: "enum", enum: RatingValues, nullable: false })
+    @IsDefined()
     rating: number;
+
+    @ManyToOne(() => LogEntry, logEntry => logEntry.responses)
+    entry: LogEntry;
+
+
 }

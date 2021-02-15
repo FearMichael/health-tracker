@@ -15,6 +15,8 @@ import { ChartsService } from './modules/Charts/charts.service';
 
 import { ormConfig } from "./config/ormconfig";
 import * as Entities from "./entity/index";
+import { LogsController } from './modules/Logs/logs.controller';
+import { LogsService } from './modules/Logs/logs.service';
 
 @Module({
   imports: [
@@ -27,8 +29,8 @@ import * as Entities from "./entity/index";
       exclude: ['/api*'],
     }),
   ],
-  controllers: [UserController, AuthController, ChartsController],
-  providers: [AppService, UserService, AuthService, ChartsService],
+  controllers: [UserController, AuthController, ChartsController, LogsController],
+  providers: [AppService, UserService, AuthService, ChartsService, LogsService],
 })
 export class AppModule {
   constructor(private connection: Connection) { }
