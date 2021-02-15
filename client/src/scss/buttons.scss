@@ -1,0 +1,11 @@
+@import "./variables.scss";
+
+button.action-button {
+    color: #ffffff;
+    background-color: $primary;
+}
+
+button.cancel-button {
+    color: #ffffff;
+    background-color: $warn;
+}

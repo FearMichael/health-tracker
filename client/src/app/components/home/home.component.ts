@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { subDays } from 'date-fns';
 import { NotificationService } from 'src/app/global/modules/notification/NotificationService/notification.service';
+import * as dayjs from 'dayjs';
+import { IDateToggle } from 'src/app/global/components/date-toggle/date-toggle.interfaces';
 
 @Component({
   selector: 'app-home',
@@ -10,21 +11,15 @@ import { NotificationService } from 'src/app/global/modules/notification/Notific
 })
 export class HomeComponent implements OnInit {
 
-  public date = {
-    endDate: Date.now(),
-    startDate: subDays(Date.now(), 7)
+  public date: IDateToggle = {
+    endDate: dayjs().valueOf(),
+    startDate: dayjs().subtract(7, 'days').valueOf()
   };
 
   constructor(
     private http: HttpClient,
     private notificationService: NotificationService
   ) { }
-
-
-
-  modelChange(val) {
-    console.log(val);
-  }
 
   ngOnInit(): void {
 

@@ -16,11 +16,11 @@ export class LogEntry extends BaseEntity {
     @Column({ type: "text", nullable: false })
     notes: string;
 
-    @ApiProperty()
+    @ApiProperty({ type: () => User })
     @ManyToOne(() => User, user => user.logEntries)
     user: User;
 
-    @ApiProperty()
+    @ApiProperty({ type: () => LogRating })
     @ManyToMany(() => LogRating)
     @JoinTable()
     questions: LogRating[];

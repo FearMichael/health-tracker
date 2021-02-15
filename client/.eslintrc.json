@@ -24,6 +24,8 @@
         "max-len": [
           0
         ],
+        "quotes": "off",
+        "curly": "off",
         "no-shadow": "off",
         "@angular-eslint/component-selector": [
           "error",

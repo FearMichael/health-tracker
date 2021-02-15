@@ -1,5 +1,5 @@
 import { AfterLoad, Column, Entity } from "typeorm";
-import differenceInCalendarYears from 'date-fns/differenceInCalendarYears'
+import { differenceInCalendarYears } from 'date-fns'
 // import format from "date-fns/format"
 // import Date from 'date-fns/'
 import { BaseEntity } from "./BaseEntity.entity";
@@ -8,11 +8,14 @@ import { BaseEntity } from "./BaseEntity.entity";
 @Entity()
 export class PersonalInformation extends BaseEntity {
 
-    @Column({ type: "datetime" })
+    @Column({ type: "datetime", default: null })
     birthdate: Date;
 
-    @Column({ type: "int" })
-    age: number;
+    @Column({ type: "int", default: null })
+    age: number | null;
+
+    @Column({ type: "varchar", default: null })
+    alternateEmail: string;
 
     @AfterLoad()
     calculateAge() {

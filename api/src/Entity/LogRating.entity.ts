@@ -15,7 +15,7 @@ export class LogRating extends BaseEntity {
     @Column({ type: "text", nullable: false })
     notes: string;
 
-    @ApiProperty()
+    @ApiProperty({ type: () => User })
     @ManyToOne(() => User, user => user.logEntries)
     user: User;
 
