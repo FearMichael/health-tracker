@@ -24,11 +24,11 @@ export enum DateToggleTimeframes {
 export class DateToggleComponent implements OnInit, ControlValueAccessor {
 
   @Input() public rangeToggle = true;
+  @Input() public value: IDateToggle;
   public dayChange = 7;
   public dateToggleTimeframes = DateToggleTimeframes;
   public selectedTimeframe = DateToggleTimeframes.week;
 
-  @Input() value: IDateToggle;
 
   public defaultDates: IDateToggle = {
     endDate: dayjs().valueOf(),
