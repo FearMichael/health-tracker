@@ -6,7 +6,8 @@ import * as dayjs from 'dayjs';
 })
 export class CalendarPipe implements PipeTransform {
 
-  transform(value: string, format: string = 'MM/DD/YYYY'): unknown {
+  transform(value: string | number, format: string = 'MM/DD/YYYY'): unknown {
+    if (!dayjs(value).isValid()) return null;
     return dayjs(value).format(format);
   }
 

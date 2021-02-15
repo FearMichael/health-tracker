@@ -4,15 +4,18 @@
             <button mat-icon-button (click)="calculateDate(true)">
                 <mat-icon>navigate_before</mat-icon>
             </button>
-            <h4 class="mb-0">{{ value.startDate | date: "mediumDate" }} - {{ value.endDate | date: "mediumDate" }}</h4>
+            <h4 class="mb-0">{{ value?.startDate | calendar: "MM/DD/YYYY" }} - {{ value?.endDate | calendar: "MM/DD/YYYY" }}</h4>
             <button mat-icon-button (click)="calculateDate()">
                 <mat-icon>navigate_next</mat-icon>
             </button>
         </div>
         <div class="d-flex justify-content-around" *ngIf="rangeToggle">
-            <button mat-button>month</button>
-            <button mat-button>day</button>
-            <button mat-button>year</button>
+            <mat-button-toggle-group [value]="selectedTimeframe" (change)="timeframeChange($event)">
+                <mat-button-toggle [value]="dateToggleTimeframes.day">Day</mat-button-toggle>
+                <mat-button-toggle [value]="dateToggleTimeframes.week">Week</mat-button-toggle>
+                <mat-button-toggle [value]="dateToggleTimeframes.month">Month</mat-button-toggle>
+                <mat-button-toggle [value]="dateToggleTimeframes.year">Year</mat-button-toggle>
+            </mat-button-toggle-group>
         </div>
     </div>
 </section>

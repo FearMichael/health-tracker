@@ -42,6 +42,7 @@ export class UserService {
             user = this.userRepo.create({ id, email });
             this.userRepo.save(user);
         }
+        // if (!user.address) user.address = {};
         return user;
     }
 

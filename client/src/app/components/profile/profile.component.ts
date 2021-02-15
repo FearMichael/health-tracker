@@ -59,6 +59,7 @@ export class ProfileComponent implements OnInit {
       tap(() => this.loader.hide()),
       catchError(() => of(this.loader.hide()))
     ).subscribe((val) => {
+      this.editMode = false;
       console.log(val);
     });
   }

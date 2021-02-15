@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
-import { take, tap } from 'rxjs/operators';
+import { of } from 'rxjs';
+import { catchError, take, tap } from 'rxjs/operators';
 
 
 @Component({
@@ -18,6 +19,11 @@ export class AppComponent implements OnInit {
 
 
   public ngOnInit() {
-    this.auth.getAccessTokenSilently().pipe().subscribe((val) => console.log(val));
+    this.auth.getAccessTokenSilently().pipe(
+      catchError((err) => {
+        console.log(err);
+        return of(false);
+      })
+    ).subscribe();
   }
 }
