@@ -18,12 +18,12 @@ Vagrant.configure("2") do |config|
     config.vm.network "forwarded_port", guest: 3000, host: 3000
 
     # NFS mount the shared folder
-    config.vm.synced_folder ".", "/var/www", :nfs => { :mount_options => ["dmode=777","fmode=666"] }
+    #config.vm.synced_folder ".", "/var/www", :nfs => { :mount_options => ["dmode=777","fmode=666"] }
 
     # Only uncomment the below if NFS does not work for you above (be sure to comment out above line also)
-    #config.vm.synced_folder ".", "/var/www", :mount_options => ["dmode=777", "fmode=666"]
+    config.vm.synced_folder ".", "/var/www", :mount_options => ["dmode=777", "fmode=666"]
 
-    config.vm.provision :shell, privileged: false, :path => "provision.sh"
+    config.vm.provision :shell, privileged: true, :path => "provision.sh"
 
     config.vm.provider "virtualbox" do |v|
         v.memory = 4096
