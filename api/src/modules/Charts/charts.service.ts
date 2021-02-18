@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { LogEntry } from 'src/entity/LogEntry.entity';
+import { LogEntry } from 'src/entities/LogEntry.entity';
 import { SortDirection } from 'src/global/Interfaces/query.enum';
 import { getRepository, LessThanOrEqual, MoreThanOrEqual } from 'typeorm';
 import { getTime } from "date-fns";

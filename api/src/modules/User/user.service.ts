@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { PersonalInformation } from 'src/entity';
-import { User } from 'src/entity/User.entity';
+import { PersonalInformation } from 'src/entities';
+import { User } from 'src/entities/User.entity';
 import { getConnection, Repository } from 'typeorm';
 import { ILoginPayload, IUserDetail } from './user.interfaces';
 
