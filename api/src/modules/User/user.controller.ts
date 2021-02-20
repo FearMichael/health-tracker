@@ -1,6 +1,6 @@
 import { Controller, Get, HttpException, HttpStatus, Param, Post, Put, Req } from '@nestjs/common';
 import { ApiBody, ApiProperty, ApiResponse, ApiTags } from '@nestjs/swagger';
-import { User } from 'src/entity/User.entity';
+import { User } from 'src/entities/User.entity';
 import { Request } from 'express';
 import { UserService } from './user.service';
 import { IUserDetail } from "./user.interfaces";

@@ -14,9 +14,9 @@ import { ChartsController } from './modules/Charts/charts.controller';
 import { ChartsService } from './modules/Charts/charts.service';
 
 import { ormConfig } from "./config/ormconfig";
-import * as Entities from "./entity/index";
 import { LogsController } from './modules/LogEntries/logs.controller';
 import { LogsService } from './modules/LogEntries/logs.service';
+import * as Entities from "./entities/index";
 
 @Module({
   imports: [

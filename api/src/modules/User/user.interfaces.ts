@@ -1,5 +1,5 @@
-import { PersonalInformation, User } from "src/entity";
-import { Address } from "src/entity/Address.entity";
+import { PersonalInformation, User } from "src/entities";
+import { Address } from "src/entities/Address.entity";
 
 export interface IUser {
     id: string;

@@ -1,6 +1,6 @@
 import { Controller, Get, Post, Request } from '@nestjs/common';
 import { ApiBasicAuth, ApiBody, ApiResponse, ApiTags } from '@nestjs/swagger';
-import { User } from 'src/entity/User.entity';
+import { User } from 'src/entities/User.entity';
 import { getManager } from 'typeorm';
 import { LoginBodyDto } from './auth.dto';
 
