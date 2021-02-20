@@ -21,7 +21,7 @@ import * as Entities from "./entities/index";
 @Module({
   imports: [
     TypeOrmModule.forRoot({
-      ...ormConfig as TypeOrmModuleOptions
+      ...ormConfig as TypeOrmModuleOptions,
     }),
     TypeOrmModule.forFeature(Object.values(Entities)),
     ServeStaticModule.forRoot({

@@ -11,6 +11,7 @@ import { LogEntry } from "./LogEntry.entity";
 export class LogQuestion extends BaseEntity {
 
     @ApiProperty({ description: "Text for the question" })
+    @Column("varchar")
     @IsDefined()
     text: string;
 
