@@ -14,12 +14,14 @@ import { ChartsController } from './modules/Charts/charts.controller';
 import { ChartsService } from './modules/Charts/charts.service';
 
 import { ormConfig } from "./config/ormconfig";
+import { LogsController } from './modules/LogEntries/logs.controller';
+import { LogsService } from './modules/LogEntries/logs.service';
 import * as Entities from "./entities/index";
 
 @Module({
   imports: [
     TypeOrmModule.forRoot({
-      ...ormConfig as TypeOrmModuleOptions
+      ...ormConfig as TypeOrmModuleOptions,
     }),
     TypeOrmModule.forFeature(Object.values(Entities)),
     ServeStaticModule.forRoot({
@@ -27,8 +29,8 @@ import * as Entities from "./entities/index";
       exclude: ['/api*'],
     }),
   ],
-  controllers: [UserController, AuthController, ChartsController],
-  providers: [AppService, UserService, AuthService, ChartsService],
+  controllers: [UserController, AuthController, ChartsController, LogsController],
+  providers: [AppService, UserService, AuthService, ChartsService, LogsService],
 })
 export class AppModule {
   constructor(private connection: Connection) { }

@@ -1,5 +1,5 @@
+// import { LogEntry } from "src/entities";
 // import { getRepository } from "typeorm";
-// import { LogEntry } from "../entity/LogEntry.entity";
 
 // const randomString = () => {
 //     const letters = ["abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"];
