@@ -52,6 +52,16 @@ Pull Requests:
 3. Pay attention to any requested changes on your Pull Request and make the necessary adjustments on that branch and then push the changes in order to update the PR.
 4. If all is good your PR is merge, now do a fresh pull and a little dance to celebrate!
 
+Connecting to Database:
+---
+Recommended GUI is Table Plus - https://tableplus.com/ - works for a variety of relational and nosql databases as well as on both mac and windows.
+1. Create your connection inside your SQL client GUI
+2. This will require you to configure the SSH option in the connection configuration
+3. The IP address is the one vagrant is exposed on
+4. Use the SSH key that can be found inside the `.vagrant` folder
+5. Use the regular 127.0.0.1 and the corresponding username and password that should have been provided to you
+6. You should now be connected
+
 Api Documentation:
 ---
 API documentation is self-documenting based on swagger tags added to controllers and entities.
