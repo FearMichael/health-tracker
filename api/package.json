@@ -25,11 +25,13 @@
     "migration:run": "npm run typeorm -- migration:run --config ./src/config/cli-ormconfig.ts",
     "schema:sync": "npm run typeorm -- schema:sync --config ./src/config/cli-ormconfig.ts",
     "schema:log": "npm run typeorm -- schema:log --config ./src/config/cli-ormconfig.ts",
-    "prestart:prod": "npm install && npm run build"
+    "prestart:prod": "npm install && npm run build",
+    "seed:config": "ts-node ./node_modules/typeorm-seeding/dist/cli.js config",
+    "seed:run": "ts-node ./node_modules/typeorm-seeding/dist/cli.js seed -n ./src/config/cli-ormconfig.ts"
   },
   "dependencies": {
     "@nestjs/cli": "^7.5.1",
-    "@nestjs/common": "^7.0.0",
+    "@nestjs/common": "^7.6.12",
     "@nestjs/core": "^7.0.0",
     "@nestjs/platform-express": "^7.0.0",
     "@nestjs/serve-static": "^2.1.3",
@@ -42,12 +44,14 @@
     "rimraf": "^3.0.2",
     "rxjs": "^6.5.4",
     "swagger-ui-express": "^4.1.4",
-    "typeorm": "^0.2.26"
+    "typeorm": "^0.2.26",
+    "typeorm-seeding": "^1.6.1"
   },
   "devDependencies": {
     "@nestjs/schematics": "^7.0.0",
     "@nestjs/testing": "^7.0.0",
     "@types/express": "^4.17.3",
+    "@types/faker": "^5.1.7",
     "@types/jest": "26.0.10",
     "@types/node": "^13.9.1",
     "@types/supertest": "^2.0.8",

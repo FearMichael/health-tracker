@@ -22,6 +22,7 @@ const ORMconfig: ConnectionOptions = {
     },
     "migrationsRun": true,
     "logging": true,
+
 }
 
 export = ORMconfig;
