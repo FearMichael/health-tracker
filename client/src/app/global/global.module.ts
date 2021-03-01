@@ -27,6 +27,7 @@ import { MatInputModule } from '@angular/material/input';
 import { FullnamePipe } from './pipes/fullname.pipe';
 import { CalendarPipe } from './pipes/calendar.pipe';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatSelectModule } from '@angular/material/select';
 
 
 @NgModule({
@@ -60,7 +61,8 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
     MatDatepickerModule,
     MatNativeDateModule,
     MatInputModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    MatSelectModule,
   ],
   exports: [
     MatToolbarModule,
@@ -80,7 +82,8 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
     MatInputModule,
     FullnamePipe,
     CalendarPipe,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    MatSelectModule
   ],
   providers: [
     ...Object.values(Services).map(e => e),

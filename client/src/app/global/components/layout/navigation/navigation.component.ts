@@ -25,12 +25,7 @@ export class NavigationComponent implements OnInit {
     this.auth.isAuthenticated$.subscribe((auth) => {
       this.loggedIn = auth;
     });
-    this.auth.user$.pipe(
-      switchMap((user) => this.userService.getAuthUser({ id: user.sub, email: user.email }).pipe(
-        map((created) => ({ authUser: user, created }))
-      )
-      )
-    ).subscribe(({ authUser, created }) => {
+    this.userService.getAuthUser().subscribe(({ authUser, created }) => {
       this.user = created;
       const msg: INotificationMessage = {
         message: `Welcome ${created.firstName ? created.firstName : created.email}`,

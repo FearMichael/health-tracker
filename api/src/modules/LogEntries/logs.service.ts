@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { LogEntry } from 'src/entities';
+import { LogEntry, LogQuestion } from 'src/entities';
 import { Repository } from 'typeorm';
 
 @Injectable()
@@ -21,9 +21,11 @@ export class LogsService {
         return this.repo.find({ relations: ["logEntry.responses", "logEntry.responses.questionType"] });
     }
 
-    public create(entry: LogEntry): Promise<LogEntry> {
+    public async create(entry: LogEntry): Promise<LogEntry> {
+        console.log(entry);
         const data = this.repo.create(entry);
-        return this.repo.save(data);
+        data.responses = entry.responses;
+        return await this.repo.save(data);
     }
 
     public update(entry: Partial<LogEntry>): Promise<LogEntry> {

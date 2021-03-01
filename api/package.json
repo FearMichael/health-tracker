@@ -26,7 +26,7 @@
     "schema:sync": "npm run typeorm -- schema:sync --config ./src/config/cli-ormconfig.ts",
     "schema:log": "npm run typeorm -- schema:log --config ./src/config/cli-ormconfig.ts",
     "prestart:prod": "npm install && npm run build",
-    "seed:config": "ts-node ./node_modules/typeorm-seeding/dist/cli.js config",
+    "seed:config": "ts-node ./node_modules/typeorm-seeding/dist/cli.js config -n ./src/config/cli-ormconfig.ts",
     "seed:run": "ts-node ./node_modules/typeorm-seeding/dist/cli.js seed -n ./src/config/cli-ormconfig.ts"
   },
   "dependencies": {

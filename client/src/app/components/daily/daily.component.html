@@ -1,1 +1,12 @@
-<p>daily works!</p>
+<section class="pt-2">
+    <h3 class="text-center" [innerHTML]="date | calendar: 'MMMM DD, YYYY'"></h3>
+    <form #form="ngForm" class="mx-auto d-flex flex-column w-50">
+        <mat-form-field *ngFor="let question of questions; let i = index;">
+            <mat-label>{{ question.text }}</mat-label>
+            <mat-select>
+                <mat-option *ngFor="let option of options" [value]="option">{{ option }}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <button mat-raised-button [disabled]="!form.form.valid" (click)="addDaily()">Add</button>
+    </form>
+</section>

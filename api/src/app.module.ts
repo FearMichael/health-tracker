@@ -17,6 +17,8 @@ import { ormConfig } from "./config/ormconfig";
 import { LogsController } from './modules/LogEntries/logs.controller';
 import { LogsService } from './modules/LogEntries/logs.service';
 import * as Entities from "./entities/index";
+import { LogquestionsController } from './modules/LogQuestions/logquestions.controller';
+import { LogquestionsService } from './modules/LogQuestions/logquestions.service';
 
 @Module({
   imports: [
@@ -29,8 +31,8 @@ import * as Entities from "./entities/index";
       exclude: ['/api*'],
     }),
   ],
-  controllers: [UserController, AuthController, ChartsController, LogsController],
-  providers: [AppService, UserService, AuthService, ChartsService, LogsService],
+  controllers: [UserController, AuthController, ChartsController, LogsController, LogquestionsController],
+  providers: [AppService, UserService, AuthService, ChartsService, LogsService, LogquestionsService],
 })
 export class AppModule {
   constructor(private connection: Connection) { }
