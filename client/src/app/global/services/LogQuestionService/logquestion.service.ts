@@ -8,7 +8,7 @@ import { tap } from 'rxjs/operators';
 })
 export class LogquestionService {
 
-  private route = "/api/logquestions";
+  private route = '/api/logquestions';
 
   constructor(
     private http: HttpClient

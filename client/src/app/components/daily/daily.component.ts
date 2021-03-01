@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LogquestionService } from 'src/app/global/services/LogQuestionService/logquestion.service';
-import * as dayjs from "dayjs/";
+import * as dayjs from 'dayjs/';
 import { UserService } from 'src/app/global/services';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 
@@ -40,7 +40,7 @@ export class DailyComponent implements OnInit {
   public addDaily() {
 
     this.responses.map(v => ({ ...v, userId: this.user.id }));
-    // 
+    //
   }
 
 }
